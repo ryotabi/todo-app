@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import Login from './pages/Login'
+import Form from './pages/Form'
+import List from './pages/List'
 
-function App() {
+const App = () => {
+  const [texts, setTexts] = useState([
+    {
+      content: 'ご飯を食べる'
+    },
+    {
+      content: '歯を磨く'
+    }
+  ])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <h1>Todo App</h1>
+      <Login />
+      <Form />
+      <List texts={texts} />
+    </>
+  )
 }
 
-export default App;
+export default App
